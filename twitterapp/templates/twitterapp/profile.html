@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twitter</title>
+</head>
+<body>
+    <h1>Profile of {{ user }}</h1>
+    <hr>
+    <a href="{% url 'twitterapp:index' %}">Tweet feed</a>
+    <a href="{% url 'loginapp:logout' %}">Log out</a>
+    <hr>
+    <ul>
+        {% for tweet in tweets  %}
+            <h2>{{ tweet.user }}</h2>
+            <div>
+                <p>{{ tweet.description }}</p>
+            </div>
+        {% endfor  %}
+    </ul>
+    <hr>
+    <h2>Account info:</h2>
+    <p>User name: {{ user }}</p>
+    <p>Email: {{ user.email }}</p>
+    <hr>
+    <form action="." method="post">
+        {% csrf_token  %}
+        <label for="title">Title</label>
+        <br />
+        <input type="text" name="title" id="title">
+        <br />
+        <label for="description">Description</label>
+        <br />
+        <textarea name="description" id="description">{{ tweet.description }}</textarea>
+        <br />
+        <button>Submit</button>
+    </form>
+</body>
+</html>
