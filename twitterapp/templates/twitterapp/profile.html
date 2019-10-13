@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,37 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Twitter</title>
+    <link rel="stylesheet" href="../../static/twitterapp/style.css">
 </head>
 <body>
+    <nav>
+        <img src="{% static 'twitterapp/logo.png' %}" alt="">
+        <a href="{% url 'twitterapp:index' %}">Tweet feed</a>
+        <a href="{% url 'loginapp:logout' %}">Log out</a>
+    </nav>
+    <div class="wrapper">
     <h1>Profile of {{ user }}</h1>
-    <hr>
-    <a href="{% url 'twitterapp:index' %}">Tweet feed</a>
-    <a href="{% url 'loginapp:logout' %}">Log out</a>
-    <hr>
+    <br>
     <ul>
         {% for tweet in tweets  %}
-            <h2>{{ tweet.user }}</h2>
-            <div>
+        <h2>{{ tweet.user }} <i>tweets:</i></h2>
+        <div class="tweetBox">
+            <div class="arrow"></div>
+                <div class="tweet">
                 <p>{{ tweet.description }}</p>
             </div>
+        </div>
         {% endfor  %}
     </ul>
-    <hr>
-    <h2>Account info:</h2>
-    <p>User name: {{ user }}</p>
-    <p>Email: {{ user.email }}</p>
-    <hr>
-    <form action="." method="post">
-        {% csrf_token  %}
-        <label for="title">Title</label>
-        <br />
-        <input type="text" name="title" id="title">
-        <br />
-        <label for="description">Description</label>
-        <br />
-        <textarea name="description" id="description">{{ tweet.description }}</textarea>
-        <br />
-        <button>Submit</button>
-    </form>
+    <div id="account">
+        <h2>Account info:</h2>
+        <p>User name: {{ user }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+</div>
 </body>
 </html>

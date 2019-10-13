@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#tweetForm {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.wrapper {
+    padding: 2% 20%;
+}
+
+#account {
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.tweet {
+    background: #dddddd;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    z-index: 2;
+    color: rgb(77, 152, 214);
+}
+
+.tweetBox {
+    position: relative;
+    background: transparent;
+    margin-top: 7px;
+}
+
+.arrow {
+    background: #dddddd;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    border-radius: 0;
+    position: absolute;
+    left: 20px;
+    z-index: -1;
+}
+
+i {
+    color: rgb(77, 152, 214);
+}
+
+#tweetForm button {
+    background: rgb(77, 152, 214);
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#tweetForm button:hover {
+    background: rgb(124, 174, 214);
+}
+
+textarea {
+    background: #f7f7f7;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+input {
+    background: #f7f7f7;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
